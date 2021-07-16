@@ -3,7 +3,7 @@ from link_station.manager import get_best_link_station_with_power
 
 
 def run_for_default_data():
-    """Run program for exercise data"""
+    """Run program for default data"""
     # initialize data
     link_stations = [
         Station(0, 0, 10),
