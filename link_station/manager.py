@@ -22,10 +22,10 @@ def best_link_station_with_power(
     best_station: Station, device: Coordinates, power: Optional[float]
 ) -> str:
     if not power:
-        return f'No link station within reach for point {device.x},{device.y}\n'
+        return f"No link station within reach for point {device.x},{device.y}\n"
     return (
-        f'Best link station for point {device.x},{device.y} is '
-        f'{best_station.x},{best_station.y} with power {power}\n'
+        f"Best link station for point {device.x},{device.y} is "
+        f"{best_station.x},{best_station.y} with power {power}\n"
     )
 
 

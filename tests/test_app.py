@@ -6,9 +6,9 @@ from link_station.inputs import Station, Coordinates
 
 def test_run_for_default_data(mocker):
     get_best_link_station_with_power_mock = Mock()
-    get_best_link_station_with_power_mock.return_value = 'test1'
+    get_best_link_station_with_power_mock.return_value = "test1"
     mocker.patch(
-        'link_station.app.get_best_link_station_with_power',
+        "link_station.app.get_best_link_station_with_power",
         get_best_link_station_with_power_mock,
     )
 
@@ -49,4 +49,4 @@ def test_run_for_default_data(mocker):
             ),
         ]
     )
-    assert actual_value == 'test1test1test1test1'
+    assert actual_value == "test1test1test1test1"

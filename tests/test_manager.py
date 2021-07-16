@@ -29,7 +29,7 @@ def coordinates_fixtures():
     ]
 
 
-@pytest.mark.parametrize('test_c1,test_c2,expected', coordinates_fixtures())
+@pytest.mark.parametrize("test_c1,test_c2,expected", coordinates_fixtures())
 def test_get_distance_between_coordinates(test_c1, test_c2, expected):
     assert get_distance_between_coordinates(test_c1, test_c2) == expected
 
@@ -42,7 +42,7 @@ def test_get_power(mocker):
     get_distance_between_coordinates_mock.return_value = 10
 
     mocker.patch(
-        'link_station.manager.get_distance_between_coordinates',
+        "link_station.manager.get_distance_between_coordinates",
         get_distance_between_coordinates_mock,
     )
 
@@ -65,18 +65,18 @@ def best_link_fixtures():
             Station(x=2, y=1, reach=12),
             Coordinates(x=4, y=5),
             50,
-            'Best link station for point 4,5 is 2,1 with power 50\n',
+            "Best link station for point 4,5 is 2,1 with power 50\n",
         ),
         (
             Station(x=33, y=3, reach=5),
             Coordinates(x=5, y=6),
             None,
-            'No link station within reach for point 5,6\n',
+            "No link station within reach for point 5,6\n",
         ),
     ]
 
 
-@pytest.mark.parametrize('station,coordinates,power,expected', best_link_fixtures())
+@pytest.mark.parametrize("station,coordinates,power,expected", best_link_fixtures())
 def test_best_link_station_with_power(station, coordinates, power, expected):
     assert best_link_station_with_power(station, coordinates, power) == expected
 
@@ -88,11 +88,11 @@ def test_get_best_link_station_with_power(mocker):
     get_power_mock.return_value = 100
 
     best_link_station_with_power_mock = Mock()
-    best_link_station_with_power_mock.return_value = 'success'
+    best_link_station_with_power_mock.return_value = "success"
 
-    mocker.patch('link_station.manager.get_power', get_power_mock)
+    mocker.patch("link_station.manager.get_power", get_power_mock)
     mocker.patch(
-        'link_station.manager.best_link_station_with_power',
+        "link_station.manager.best_link_station_with_power",
         best_link_station_with_power_mock,
     )
 
@@ -108,4 +108,4 @@ def test_get_best_link_station_with_power(mocker):
         Station(x=33, y=3, reach=5), Coordinates(x=2, y=6), 100
     )
 
-    assert actual_value == 'success'
+    assert actual_value == "success"
